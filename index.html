@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>크리스마스 구연동화 - 나홀로집에</title>
+    <title>나홀로집에 🎄</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Dongle:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,267 +13,335 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(180deg, #ffeef8 0%, #fff4e6 50%, #e3f2fd 100%);
             min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+            padding: 0;
         }
 
         .header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 40px 30px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            padding: 60px 20px;
             text-align: center;
             color: white;
+            box-shadow: 0 4px 20px rgba(196, 69, 105, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "❄️";
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            top: -20px;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: "🎄";
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            top: -20px;
+            right: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: 3em;
+            font-weight: 700;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            letter-spacing: 2px;
         }
 
         .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.5em;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        .music-control {
-            background: #fff3cd;
-            padding: 20px;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .bgm-section {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 3px solid #ffd93d;
+        }
+
+        .bgm-section h2 {
+            color: #ff6b9d;
+            font-size: 1.8em;
+            margin-bottom: 20px;
             text-align: center;
-            border-bottom: 3px solid #ffc107;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .music-control h3 {
-            color: #856404;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .music-control iframe {
+        .bgm-section iframe {
             width: 100%;
-            max-width: 560px;
-            height: 200px;
-            border-radius: 10px;
+            height: 180px;
+            border-radius: 20px;
             border: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .music-note {
-            font-size: 0.9em;
-            color: #856404;
-            margin-top: 10px;
-            font-style: italic;
+        .scene-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 8px solid #ff6b9d;
+            position: relative;
+            overflow: hidden;
         }
 
-        .content {
-            padding: 40px 30px;
+        .scene-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b9d, #ffd93d, #6BCB77, #4D96FF);
         }
 
-        .scene {
-            margin-bottom: 50px;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: transform 0.3s ease;
-        }
-
-        .scene:hover {
-            transform: translateX(5px);
+        .scene-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
         }
 
         .scene-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
+            gap: 15px;
         }
 
         .scene-title {
-            font-size: 1.8em;
-            color: #667eea;
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c3e50;
             display: flex;
             align-items: center;
+            gap: 12px;
         }
 
-        .scene-icon {
-            font-size: 1.2em;
-            margin-right: 10px;
-        }
-
-        .audio-control {
+        .scene-number {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
-            gap: 10px;
             align-items: center;
-            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 1.3em;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
         }
 
-        .audio-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .play-btn {
+            background: linear-gradient(135deg, #6BCB77, #4D96FF);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 0.9em;
-            font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 6px 20px rgba(107, 203, 119, 0.3);
+            font-family: 'Noto Sans KR', sans-serif;
         }
 
-        .audio-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        .play-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(107, 203, 119, 0.4);
         }
 
-        .audio-btn:active {
-            transform: translateY(0);
+        .play-btn:active {
+            transform: translateY(-1px);
         }
 
-        .audio-btn.playing {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        .play-btn.playing {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
         }
 
-        .audio-btn-icon {
-            font-size: 1.2em;
+        .play-btn .icon {
+            font-size: 1.3em;
         }
 
         .narration {
-            background: #e3f2fd;
-            padding: 15px 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border-left: 4px solid #2196f3;
-            line-height: 1.8;
-            font-size: 1.1em;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+            padding: 25px 30px;
+            margin: 20px 0;
+            border-radius: 20px;
+            border-left: 5px solid #4D96FF;
+            font-size: 1.15em;
+            line-height: 2;
+            color: #2c3e50;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(77, 150, 255, 0.1);
         }
 
         .narration::before {
-            content: "📖 ";
-            font-weight: bold;
+            content: "📖";
+            position: absolute;
+            top: 20px;
+            left: -15px;
+            font-size: 2em;
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .dialogue {
-            margin: 15px 0;
-            padding: 15px 20px;
-            border-radius: 10px;
-            line-height: 1.8;
-            font-size: 1.05em;
+            margin: 20px 0;
+            padding: 20px 30px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            line-height: 1.9;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         .dialogue-kevin {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
+            background: linear-gradient(135deg, #fff9e6 0%, #fff4d6 100%);
+            border-left: 5px solid #ffd93d;
         }
 
         .dialogue-mom {
-            background: #f8d7da;
-            border-left: 4px solid #dc3545;
+            background: linear-gradient(135deg, #ffe6f0 0%, #ffd6e6 100%);
+            border-left: 5px solid #ff6b9d;
         }
 
         .dialogue-thief {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
+            background: linear-gradient(135deg, #e6f7e9 0%, #d6f0dd 100%);
+            border-left: 5px solid #6BCB77;
         }
 
         .dialogue-grandpa {
-            background: #d1ecf1;
-            border-left: 4px solid #17a2b8;
+            background: linear-gradient(135deg, #e6f2f7 0%, #d6e9f0 100%);
+            border-left: 5px solid #4D96FF;
         }
 
         .dialogue-santa {
-            background: #fff0f5;
-            border-left: 4px solid #ff69b4;
+            background: linear-gradient(135deg, #ffe6f5 0%, #ffd6ed 100%);
+            border-left: 5px solid #ff69b4;
         }
 
         .dialogue-family {
-            background: #e7e7ff;
-            border-left: 4px solid #6c63ff;
+            background: linear-gradient(135deg, #f0e6ff 0%, #e6d6ff 100%);
+            border-left: 5px solid #9b59b6;
         }
 
         .speaker {
-            font-weight: bold;
-            color: #495057;
-            margin-bottom: 5px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.05em;
         }
 
         .dialogue-text {
-            font-style: italic;
-        }
-
-        .bgm-info {
-            background: #fff9e6;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            font-size: 0.9em;
-            color: #856404;
-            border: 1px dashed #ffc107;
-        }
-
-        .bgm-info::before {
-            content: "🎵 ";
+            color: #34495e;
+            font-weight: 400;
         }
 
         .ending {
-            text-align: center;
-            font-size: 2em;
-            color: #667eea;
-            padding: 30px;
-            margin-top: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
             color: white;
-            border-radius: 15px;
+            text-align: center;
+            padding: 60px 40px;
+            border-radius: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 40px 0;
+            box-shadow: 0 15px 50px rgba(255, 107, 157, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
         .footer {
             text-align: center;
-            padding: 30px;
-            background: #f8f9fa;
-            color: #6c757d;
-            font-size: 0.9em;
+            padding: 40px 20px;
+            color: #7f8c8d;
+            font-size: 0.95em;
         }
 
-        .audio-placeholder {
-            font-size: 0.8em;
-            color: #666;
-            font-style: italic;
-            margin-left: 10px;
+        .footer p {
+            margin: 5px 0;
         }
 
-        /* 숨겨진 오디오 플레이어 */
         .hidden-audio {
             display: none;
         }
 
+        /* 로딩 애니메이션 */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scene-card {
+            animation: slideIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 1.8em;
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1.2em;
+            }
+
+            .scene-card {
+                padding: 25px 20px;
             }
 
             .scene-title {
-                font-size: 1.4em;
-            }
-
-            .content {
-                padding: 20px 15px;
-            }
-
-            .scene {
-                padding: 20px 15px;
+                font-size: 1.5em;
             }
 
             .scene-header {
@@ -280,504 +349,522 @@
                 align-items: flex-start;
             }
 
-            .audio-control {
-                margin-top: 10px;
+            .play-btn {
+                width: 100%;
+                justify-content: center;
             }
+
+            .narration, .dialogue {
+                font-size: 1em;
+                padding: 20px;
+            }
+
+            .narration::before {
+                font-size: 1.5em;
+                width: 40px;
+                height: 40px;
+                left: -10px;
+            }
+
+            .ending {
+                font-size: 1.8em;
+                padding: 40px 20px;
+            }
+        }
+
+        /* 스크롤 시 페이드인 효과 */
+        .fade-in {
+            animation: slideIn 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎄 크리스마스 구연동화 🎄</h1>
-            <p>&lt;나홀로집에&gt;</p>
-        </div>
+    <div class="header">
+        <h1>🎄 나홀로집에 🎅</h1>
+        <p>크리스마스 구연동화</p>
+    </div>
 
-        <div class="music-control">
-            <h3>🎵 배경음악 (BGM)</h3>
+    <div class="container">
+        <div class="bgm-section">
+            <h2>🎵 배경음악</h2>
             <iframe src="https://www.youtube.com/embed/C_q5I1H2Az4" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
             </iframe>
-            <p class="music-note">※ Holiday Flight (From "Home Alone" Soundtrack)</p>
+            <p style="text-align: center; margin-top: 15px; color: #7f8c8d; font-size: 0.95em;">
+                Holiday Flight from "Home Alone" Soundtrack
+            </p>
         </div>
 
-        <div class="content">
-            <!-- 장면1 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 1</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene1')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
+        <!-- 장면 1 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">1</div>
+                    <span>크리스마스 전날</span>
                 </div>
-                
-                <div class="bgm-info">BGM01_Holiday_Flight.mp3 (0:00~끝)</div>
-                
-                <div class="narration">
-                    크리스마스가 사흘 앞으로 다가온 어느 밤이었어요. 케빈네 가족은 여행준비로 너무너무 바빴어요!
-                    멋진 옷들과 근사한 선물들이 가득 담긴 가방을 싸야 했거든요.
-                </div>
-
-                <div class="dialogue dialogue-family">
-                    <div class="speaker">형: (허둥지둥 두리번거리며)</div>
-                    <div class="dialogue-text">"아니 내 양말 어디로 간거야?!, 한 짝이 사라졌다고!"</div>
-                </div>
-
-                <div class="dialogue dialogue-family">
-                    <div class="speaker">누나: (미소를 지으며)</div>
-                    <div class="dialogue-text">"그러게 평소에 정리좀 잘 하라니까~"</div>
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (팔짝팔짝 뛰며)</div>
-                    <div class="dialogue-text">"나도 여행 준비를 도울거야~!"</div>
-                </div>
-
-                <div class="dialogue dialogue-mom">
-                    <div class="speaker">엄마: (허리에 손을 얹고 큰 목소리로)</div>
-                    <div class="dialogue-text">"케빈!! 집안 좀 그만 어질러! 안 그래도 바쁜데 너 때문에 가방을 쌀 수가 없잖아!!"</div>
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈:</div>
-                    <div class="dialogue-text">"흥! 나만 빼고 모두들 즐거워 보여.. 나만 미워하고!! 나 혼자 있을 거야! 가족이 다 없어졌으면 좋겠어! 이 집에 나 혼자 있었으면 좋겠다고!"</div>
-                </div>
-
+                <button class="play-btn" onclick="playAudio('scene1')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
             </div>
 
-            <!-- 장면2 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 2</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene2')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
-                </div>
-
-                <!-- 숨겨진 오디오 플레이어 -->
-                <audio id="audio-scene1" class="hidden-audio">
-                    <source src="https://drive.google.com/file/d/1pzhgQapKkgg0nUKOlTzx1sP5wWoIBDqk/view?usp=drive_link" type="audio/mpeg">
-                </audio>
-                
-                <div class="narration">
-                    다음날 아침이 밝았어요. 그런데 온 집안이 너무나 조용했어요.
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (조심스럽게)</div>
-                    <div class="dialogue-text">"엄마~, 아빠~, 형?, 누나~"</div>
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (놀란 목소리로)</div>
-                    <div class="dialogue-text">"뭐야!! 다들 어디로 간거야?, 설마 어제 내 말이 이루어진거야?"</div>
-                </div>
-
-                <div class="narration">
-                    케빈은 신이 나서 온 집안을 뛰어다니며 외쳤어요.
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (흥분한 목소리로)</div>
-                    <div class="dialogue-text">"아싸!! 나는 자유야!! 내 마음대로 해도 된다구~!"</div>
-                </div>
-
-                <div class="narration">
-                    케빈은 가족들이 평소에 하지 못하게 했던 것들이 무엇이 있나 떠올리기 시작했어요.
-                    곰곰이 고민을 마친 케빈은 첫 번째로 아빠가 하지 못하게 하는 '집에서 쿵쿵 뛰기'부터 시작했어요.
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (신이 나서 큰 목소리로)</div>
-                    <div class="dialogue-text">"역시!! 집 안에서는 이렇게 높이 뛰어야 제맛이라니까~!"</div>
-                </div>
-
-                <div class="narration">
-                    다음으로 엄마가 하지 못하게 하는 '아이스크림 많이 먹기'를 하기 위해 주방으로 갔어요.
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (흥얼거리며)</div>
-                    <div class="dialogue-text">"아침대신 달콤한 아이스크림을 한가득 먹으니 얼마나 좋아~"</div>
-                </div>
-
-                <div class="narration">
-                    형과 누나가 지독히 싫어하는 형과 누나의 물건을 마구마구 뒤졌어요.
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (호기심 가득한 목소리로)</div>
-                    <div class="dialogue-text">"아니 이게 다 뭐야~? 이건 어떻게 하는거지? 이거 형이 하는 거 보고 정말 해보고 싶었는데! 역시~ 너무 재밌잖아 우히히"</div>
-                </div>
-
-                <audio id="audio-scene2" class="hidden-audio">
-                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
-                </audio>
+            <div class="narration">
+                크리스마스가 사흘 앞으로 다가온 어느 밤이었어요. 케빈네 가족은 여행준비로 너무너무 바빴어요!
+                멋진 옷들과 근사한 선물들이 가득 담긴 가방을 싸야 했거든요.
             </div>
 
-            <!-- 장면3 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 3</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene3')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
-                </div>
-                
-                <div class="narration">
-                    케빈이 한참 재밌게 놀다 보니 벌써 밖이 어두워졌어요.
-                    그런데 갑자기 창밖으로 두 개의 그림자가 드리우는 것 아니겠어요?!
-                    그리고 갑자기 두 개의 목소리가 들렸어요.
-                </div>
-
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑1:</div>
-                    <div class="dialogue-text">"여기 이 집 좀 봐, 아무도 없는 것 같지 않아? 모두들 크리스마스 휴가를 떠났나 봐"</div>
-                </div>
-
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑2:</div>
-                    <div class="dialogue-text">"으하하 그럼 내일밤 이 집으로 와서 다 훔쳐버리자!! 큭큭큭"</div>
-                </div>
-
-                <div class="narration">
-                    바로 도둑들의 목소리였어요!
-                    겁에 질린 케빈은 침대 밑에 숨어서 한참을 벌벌 떨었어요.
-                    이내 곧 마음을 다잡고 중얼거렸어요.
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈:</div>
-                    <div class="dialogue-text">"겁쟁이나 이렇게 숨어 있겠지. 난 절대 겁쟁이가 아니야. 지금은 내가 이집에서 가장 큰 어른이라고, 암 나도 이제 혼자서 뭐든지 할 수 있는 어른이야. 저 도둑들로부터 우리 집을 지켜야해!"</div>
-                </div>
-
-                <audio id="audio-scene3" class="hidden-audio">
-                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
-                </audio>
+            <div class="dialogue dialogue-family">
+                <div class="speaker">형 (허둥지둥 두리번거리며)</div>
+                <div class="dialogue-text">"아니 내 양말 어디로 간거야?!, 한 짝이 사라졌다고!"</div>
             </div>
 
-            <!-- 장면4 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 4</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene4')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
-                </div>
-                
-                <div class="narration">
-                    케빈은 분주하게 도둑들로부터 집을 구해낼 작전을 세우기 시작했어요.
-                    종이를 꺼내어 집의 구조를 간단하게 그리고,
-                    도둑들이 집 안으로 들어올 수 있는 모든 문을 표시했지요.
-                    그러고는 표시한곳 마다 함정을 설치할 계획을 세웠어요.
-                </div>
+            <div class="dialogue dialogue-family">
+                <div class="speaker">누나 (미소를 지으며)</div>
+                <div class="dialogue-text">"그러게 평소에 정리좀 잘 하라니까~"</div>
+            </div>
 
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (몰두하며)</div>
-                    <div class="dialogue-text">"이 창문 밑에 장난감 자동차를 잔뜩 놓으면 분명 미끄러 넘어지겠지? 이곳에 끈적끈적한 풀을 놓으면 물건을 훔치기 어려워질거야!
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (팔짝팔짝 뛰며)</div>
+                <div class="dialogue-text">"나도 여행 준비를 도울거야~!"</div>
+            </div>
+
+            <div class="dialogue dialogue-mom">
+                <div class="speaker">엄마 (허리에 손을 얹고 큰 목소리로)</div>
+                <div class="dialogue-text">"케빈!! 집안 좀 그만 어질러! 안 그래도 바쁜데 너 때문에 가방을 쌀 수가 없잖아!!"</div>
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈</div>
+                <div class="dialogue-text">"흥! 나만 빼고 모두들 즐거워 보여.. 나만 미워하고!! 나 혼자 있을 거야! 가족이 다 없어졌으면 좋겠어! 이 집에 나 혼자 있었으면 좋겠다고!"</div>
+            </div>
+
+            <audio id="audio-scene1" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- 장면 2 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">2</div>
+                    <span>혼자 남은 케빈</span>
+                </div>
+                <button class="play-btn" onclick="playAudio('scene2')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
+            </div>
+
+            <div class="narration">
+                다음날 아침이 밝았어요. 그런데 온 집안이 너무나 조용했어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (조심스럽게)</div>
+                <div class="dialogue-text">"엄마~, 아빠~, 형?, 누나~"</div>
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (놀란 목소리로)</div>
+                <div class="dialogue-text">"뭐야!! 다들 어디로 간거야?, 설마 어제 내 말이 이루어진거야?"</div>
+            </div>
+
+            <div class="narration">
+                케빈은 신이 나서 온 집안을 뛰어다니며 외쳤어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (흥분한 목소리로)</div>
+                <div class="dialogue-text">"아싸!! 나는 자유야!! 내 마음대로 해도 된다구~!"</div>
+            </div>
+
+            <div class="narration">
+                케빈은 가족들이 평소에 하지 못하게 했던 것들이 무엇이 있나 떠올리기 시작했어요.
+                곰곰이 고민을 마친 케빈은 첫 번째로 아빠가 하지 못하게 하는 '집에서 쿵쿵 뛰기'부터 시작했어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (신이 나서 큰 목소리로)</div>
+                <div class="dialogue-text">"역시!! 집 안에서는 이렇게 높이 뛰어야 제맛이라니까~!"</div>
+            </div>
+
+            <div class="narration">
+                다음으로 엄마가 하지 못하게 하는 '아이스크림 많이 먹기'를 하기 위해 주방으로 갔어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (흥얼거리며)</div>
+                <div class="dialogue-text">"아침대신 달콤한 아이스크림을 한가득 먹으니 얼마나 좋아~"</div>
+            </div>
+
+            <div class="narration">
+                형과 누나가 지독히 싫어하는 형과 누나의 물건을 마구마구 뒤졌어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (호기심 가득한 목소리로)</div>
+                <div class="dialogue-text">"아니 이게 다 뭐야~? 이건 어떻게 하는거지? 이거 형이 하는 거 보고 정말 해보고 싶었는데! 역시~ 너무 재밌잖아 우히히"</div>
+            </div>
+
+            <audio id="audio-scene2" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- 장면 3 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">3</div>
+                    <span>도둑들의 등장</span>
+                </div>
+                <button class="play-btn" onclick="playAudio('scene3')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
+            </div>
+
+            <div class="narration">
+                케빈이 한참 재밌게 놀다 보니 벌써 밖이 어두워졌어요.
+                그런데 갑자기 창밖으로 두 개의 그림자가 드리우는 것 아니겠어요?!
+                그리고 갑자기 두 개의 목소리가 들렸어요.
+            </div>
+
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑1</div>
+                <div class="dialogue-text">"여기 이 집 좀 봐, 아무도 없는 것 같지 않아? 모두들 크리스마스 휴가를 떠났나 봐"</div>
+            </div>
+
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑2</div>
+                <div class="dialogue-text">"으하하 그럼 내일밤 이 집으로 와서 다 훔쳐버리자!! 큭큭큭"</div>
+            </div>
+
+            <div class="narration">
+                바로 도둑들의 목소리였어요!
+                겁에 질린 케빈은 침대 밑에 숨어서 한참을 벌벌 떨었어요.
+                이내 곧 마음을 다잡고 중얼거렸어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈</div>
+                <div class="dialogue-text">"겁쟁이나 이렇게 숨어 있겠지. 난 절대 겁쟁이가 아니야. 지금은 내가 이집에서 가장 큰 어른이라고, 암 나도 이제 혼자서 뭐든지 할 수 있는 어른이야. 저 도둑들로부터 우리 집을 지켜야해!"</div>
+            </div>
+
+            <audio id="audio-scene3" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- 장면 4 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">4</div>
+                    <span>함정 만들기</span>
+                </div>
+                <button class="play-btn" onclick="playAudio('scene4')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
+            </div>
+
+            <div class="narration">
+                케빈은 분주하게 도둑들로부터 집을 구해낼 작전을 세우기 시작했어요.
+                종이를 꺼내어 집의 구조를 간단하게 그리고,
+                도둑들이 집 안으로 들어올 수 있는 모든 문을 표시했지요.
+                그러고는 표시한곳 마다 함정을 설치할 계획을 세웠어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (몰두하며)</div>
+                <div class="dialogue-text">"이 창문 밑에 장난감 자동차를 잔뜩 놓으면 분명 미끄러 넘어지겠지? 이곳에 끈적끈적한 풀을 놓으면 물건을 훔치기 어려워질거야!
 (고민하는 말투로) 그런데 이것들 모두 통과하면 어떻게 하지? 그래! 깃털 폭탄을 만드는거야! 선풍기를 이용하면 깃털이 잔뜩 날려 도둑들이 앞을 보기 힘들거야!"</div>
-                </div>
-
-                <div class="narration">
-                    케빈은 계획을 실행하기 위해 이리저리 뛰어다녔어요.
-                    형과 누나의 장난감까지 함정을 만드는 데 쓴 건 케빈과 여러분만의 비밀이에요~!
-                    마지막으로 현관 앞에 따뜻한 물을 잔뜩 뿌려 놓아 꽁꽁 얼게 만들었어요.
-                    케빈은 완벽한 함정을 만들었다고 생각하며 몹시 뿌듯했어요.
-                </div>
-
-                <audio id="audio-scene4" class="hidden-audio">
-                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
-                </audio>
             </div>
 
-            <!-- 장면5 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 5</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene5')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
-                </div>
-                
-                <div class="narration">
-                    해가 지고, 눈 앞이 깜깜한 밤이 되었어요. 두 도둑들이 속삭이는 소리가 들렸어요!
-                </div>
-
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑1:</div>
-                    <div class="dialogue-text">아이고 나 살려!!!</div>
-                </div>
-
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑2:</div>
-                    <div class="dialogue-text">뭐야! 누가 여기에 물을 뿌려둔거야! 미끄러워서 지나갈 수가 없잖아</div>
-                </div>
-
-                <div class="narration">
-                    도둑들은 케빈이 얼려둔 현관 앞을 지나다가 중심을 잡지 못하고 휘청이며 넘어지고 말았어요. 한 명은 엉덩이를 문지르고, 한 명은 엉덩이를 부여잡은 채 집으로 들어갔어요.
-                </div>
-
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑1: (작은 목소리로)</div>
-                    <div class="dialogue-text">어이! 조심조심 들어가라구! 집에 사람이 있을지도 모르잖아</div>
-                </div>
-
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑2:</div>
-                    <div class="dialogue-text">으으아아악!!! 아이고 내 발!!!</div>
-                </div>
-
-                <div class="narration">
-                    앞에 먼저 들어오던 도둑이 장난감 자동차를 밟고 무척이나 아파하고 있어요!
-                    데굴데굴 구르는 도둑을 지나쳐 다른 도둑이 집 안으로 들어갔어요.
-                </div>
-
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑1: (놀란 목소리로)</div>
-                    <div class="dialogue-text">"으아!! 뭐가 날리는거야!! 앞을 볼 수가 없잖아!!"</div>
-                </div>
-
-                <div class="narration">
-                    두 도둑은 케빈이 만들어둔 함정에 빠져 허둥지둥 넘어지고 꽈당 부딪히고 말았어요.
-                    끈적한 풀까지 손에 묻은 도둑들은 일어나기 위해 서로를 잡으려다가 잔뜩 더러워지기까지 했어요.
-                </div>
-
-                <audio id="audio-scene5" class="hidden-audio">
-                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
-                </audio>
+            <div class="narration">
+                케빈은 계획을 실행하기 위해 이리저리 뛰어다녔어요.
+                형과 누나의 장난감까지 함정을 만드는 데 쓴 건 케빈과 여러분만의 비밀이에요~!
+                마지막으로 현관 앞에 따뜻한 물을 잔뜩 뿌려 놓아 꽁꽁 얼게 만들었어요.
+                케빈은 완벽한 함정을 만들었다고 생각하며 몹시 뿌듯했어요.
             </div>
 
-            <!-- 장면6 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 6</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene6')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
-                </div>
-                
-                <div class="narration">
-                    화가 머리 끝까지 난 도둑들은 이런 장난을 친 케빈을 이리저리 찾으러 다녔어요. 모든 것을 보고 있던 케빈은 미리 달아둔 밧줄을 타고 옆집으로 슈웅~ 달아났어요.
-                    도망가는 케빈을 쫓아온 도둑들은 웃으며 말했어요.
-                </div>
+            <audio id="audio-scene4" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
 
-                <div class="dialogue dialogue-thief">
-                    <div class="speaker">도둑들:</div>
-                    <div class="dialogue-text">"잡았다 요놈! 감히 우리를 골탕먹여?"</div>
+        <!-- 장면 5 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">5</div>
+                    <span>도둑들의 함정 빠지기</span>
                 </div>
-
-                <div class="dialogue dialogue-grandpa">
-                    <div class="speaker">옆집 할아버지: (호통치며)</div>
-                    <div class="dialogue-text">"이 나쁜 도둑들! 어린아이를 괴롭히다니!"</div>
-                </div>
-
-                <div class="narration">
-                    옆집 할아버지가 도둑들에게 붙잡힌 케빈을 구해주자
-                    멀리서 경찰차 소리가 들려왔어요. 도둑들은 몸부림치며 경찰들에게 잡혀갔어요.
-                    케빈과 할아버지는 멀리 사라지는 경찰차를 바라보며 미소를 지었어요.
-                </div>
-
-                <audio id="audio-scene6" class="hidden-audio">
-                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
-                </audio>
+                <button class="play-btn" onclick="playAudio('scene5')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
             </div>
 
-            <!-- 장면7 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 7</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene7')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
-                </div>
-                
-                <div class="narration">
-                    도둑을 물리친 후, 케빈은 성당에서 옆집 말리 할아버지를 다시 만났어요.
-                    크리스마스 이브에는 항상 가족들과 함께 성당에 갔었거든요.
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈:</div>
-                    <div class="dialogue-text">"할아버지, 사실 저는 할아버지가 무서운 사람인 줄 알았어요."</div>
-                </div>
-
-                <div class="dialogue dialogue-grandpa">
-                    <div class="speaker">말리 할아버지: (상냥하게 웃으며)</div>
-                    <div class="dialogue-text">"하하, 괜찮단다. 이 근처 아이들이 지어낸 이야기들이 너무 많지. 케빈, 크리스마스에 가족은 안 만나니?"</div>
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈:</div>
-                    <div class="dialogue-text">"할아버지는요? 혹시 보고 싶은 분은 없으세요?"</div>
-                </div>
-
-                <div class="dialogue dialogue-grandpa">
-                    <div class="speaker">말리 할아버지:</div>
-                    <div class="dialogue-text">"물론 가족이 보고 싶지. 하지만 아들과 내가 사이가 좋지 않아. 내가 화가 나서 심한 말을 했거든."</div>
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (진심을 담아)</div>
-                    <div class="dialogue-text">"할아버지, 가족과는 꼭 화해하세요. 제가 우리 가족이 없어졌으면 좋겠다고 소원을 빌었는데... 사실은 그게 아니었어요. 가족이 정말 보고 싶어요."</div>
-                </div>
-
-                <div class="dialogue dialogue-grandpa">
-                    <div class="speaker">말리 할아버지:</div>
-                    <div class="dialogue-text">"아무래도 네 말이 맞는 것 같구나. 꼭 아들에게 전화를 걸어봐야겠어. 케빈, 고맙다."</div>
-                </div>
-
-                <audio id="audio-scene7" class="hidden-audio">
-                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
-                </audio>
+            <div class="narration">
+                해가 지고, 눈 앞이 깜깜한 밤이 되었어요. 두 도둑들이 속삭이는 소리가 들렸어요!
             </div>
 
-            <!-- 장면8 -->
-            <div class="scene">
-                <div class="scene-header">
-                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 8</h2>
-                    <div class="audio-control">
-                        <button class="audio-btn" onclick="playAudio('scene8')">
-                            <span class="audio-btn-icon">🎵</span>
-                            <span>장면 재생</span>
-                        </button>
-                        <span class="audio-placeholder">(오디오 추가 예정)</span>
-                    </div>
-                </div>
-                
-                <div class="narration">
-                    다시 집에 돌아온 케빈은 어질러진 집을 둘러보다가 산타할아버지께 편지를 쓰기 시작했어요.
-                    가족들이 너무 보고 싶었거든요.
-                </div>
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑1</div>
+                <div class="dialogue-text">아이고 나 살려!!!</div>
+            </div>
 
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (편지에)</div>
-                    <div class="dialogue-text">'산타할아버지에게 저는 아무 선물도 필요 없어요 그냥 우리 가족들이 무사히 우리집으로 돌아오게 해주세요' 케빈 올림</div>
-                </div>
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑2</div>
+                <div class="dialogue-text">뭐야! 누가 여기에 물을 뿌려둔거야! 미끄러워서 지나갈 수가 없잖아</div>
+            </div>
 
-                <div class="narration">
-                    그렇게 케빈은 잠이 들었어요.
-                </div>
+            <div class="narration">
+                도둑들은 케빈이 얼려둔 현관 앞을 지나다가 중심을 잡지 못하고 휘청이며 넘어지고 말았어요. 한 명은 엉덩이를 문지르고, 한 명은 엉덩이를 부여잡은 채 집으로 들어갔어요.
+            </div>
 
-                <div class="narration">
-                    다음 날 아침 케빈은 눈을 뜨자마자 거실로 달려갔어요. 하지만… 아무도 없었어요.
-                    케빈은 눈물이 날 것 같았어요.
-                </div>
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑1 (작은 목소리로)</div>
+                <div class="dialogue-text">어이! 조심조심 들어가라구! 집에 사람이 있을지도 모르잖아</div>
+            </div>
 
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (슬픈 목소리로)</div>
-                    <div class="dialogue-text">"엄마… 아빠… 정말 아무도 안 오셨나…"</div>
-                </div>
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑2</div>
+                <div class="dialogue-text">으으아아악!!! 아이고 내 발!!!</div>
+            </div>
 
-                <div class="narration">
-                    바로 그때! 익숙한 목소리가 들려왔어요!!
-                </div>
+            <div class="narration">
+                앞에 먼저 들어오던 도둑이 장난감 자동차를 밟고 무척이나 아파하고 있어요!
+                데굴데굴 구르는 도둑을 지나쳐 다른 도둑이 집 안으로 들어갔어요.
+            </div>
 
-                <div class="dialogue dialogue-mom">
-                    <div class="speaker">엄마: (다급하게)</div>
-                    <div class="dialogue-text">"케빈! 케빈! 너 무사하니?"</div>
-                </div>
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑1 (놀란 목소리로)</div>
+                <div class="dialogue-text">"으아!! 뭐가 날리는거야!! 앞을 볼 수가 없잖아!!"</div>
+            </div>
 
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈: (너무 기뻐서 소리치며)</div>
-                    <div class="dialogue-text">"엄마! 정말 보고 싶었어요!!"</div>
-                </div>
+            <div class="narration">
+                두 도둑은 케빈이 만들어둔 함정에 빠져 허둥지둥 넘어지고 꽈당 부딪히고 말았어요.
+                끈적한 풀까지 손에 묻은 도둑들은 일어나기 위해 서로를 잡으려다가 잔뜩 더러워지기까지 했어요.
+            </div>
 
-                <div class="dialogue dialogue-mom">
-                    <div class="speaker">엄마: (케빈을 꼭 안아주며)</div>
-                    <div class="dialogue-text">"나도 정말 보고 싶었단다! 미안해 케빈.. 우리가 너를 잊고 두고 가다니…"</div>
-                </div>
+            <audio id="audio-scene5" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
 
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈:</div>
-                    <div class="dialogue-text">"다른 식구들은요?"</div>
+        <!-- 장면 6 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">6</div>
+                    <span>할아버지의 도움</span>
                 </div>
+                <button class="play-btn" onclick="playAudio('scene6')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
+            </div>
 
-                <div class="narration">
-                    그때 현관문이 활짝 열리고 아빠와 형, 누나들이 뛰어 들어 왔어요!
-                    온 가족이 드디어 다시 만났어요.
+            <div class="narration">
+                화가 머리 끝까지 난 도둑들은 이런 장난을 친 케빈을 이리저리 찾으러 다녔어요. 모든 것을 보고 있던 케빈은 미리 달아둔 밧줄을 타고 옆집으로 슈웅~ 달아났어요.
+                도망가는 케빈을 쫓아온 도둑들은 웃으며 말했어요.
+            </div>
+
+            <div class="dialogue dialogue-thief">
+                <div class="speaker">도둑들</div>
+                <div class="dialogue-text">"잡았다 요놈! 감히 우리를 골탕먹여?"</div>
+            </div>
+
+            <div class="dialogue dialogue-grandpa">
+                <div class="speaker">옆집 할아버지 (호통치며)</div>
+                <div class="dialogue-text">"이 나쁜 도둑들! 어린아이를 괴롭히다니!"</div>
+            </div>
+
+            <div class="narration">
+                옆집 할아버지가 도둑들에게 붙잡힌 케빈을 구해주자
+                멀리서 경찰차 소리가 들려왔어요. 도둑들은 몸부림치며 경찰들에게 잡혀갔어요.
+                케빈과 할아버지는 멀리 사라지는 경찰차를 바라보며 미소를 지었어요.
+            </div>
+
+            <audio id="audio-scene6" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- 장면 7 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">7</div>
+                    <span>가족의 소중함</span>
                 </div>
+                <button class="play-btn" onclick="playAudio('scene7')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
+            </div>
 
-                <div class="dialogue dialogue-family">
-                    <div class="speaker">형, 누나: (활짝 웃으며)</div>
-                    <div class="dialogue-text">"괜찮니?? 케빈? 혼자서 무서웠지?"</div>
+            <div class="narration">
+                도둑을 물리친 후, 케빈은 성당에서 옆집 말리 할아버지를 다시 만났어요.
+                크리스마스 이브에는 항상 가족들과 함께 성당에 갔었거든요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈</div>
+                <div class="dialogue-text">"할아버지, 사실 저는 할아버지가 무서운 사람인 줄 알았어요."</div>
+            </div>
+
+            <div class="dialogue dialogue-grandpa">
+                <div class="speaker">말리 할아버지 (상냥하게 웃으며)</div>
+                <div class="dialogue-text">"하하, 괜찮단다. 이 근처 아이들이 지어낸 이야기들이 너무 많지. 케빈, 크리스마스에 가족은 안 만나니?"</div>
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈</div>
+                <div class="dialogue-text">"할아버지는요? 혹시 보고 싶은 분은 없으세요?"</div>
+            </div>
+
+            <div class="dialogue dialogue-grandpa">
+                <div class="speaker">말리 할아버지</div>
+                <div class="dialogue-text">"물론 가족이 보고 싶지. 하지만 아들과 내가 사이가 좋지 않아. 내가 화가 나서 심한 말을 했거든."</div>
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (진심을 담아)</div>
+                <div class="dialogue-text">"할아버지, 가족과는 꼭 화해하세요. 제가 우리 가족이 없어졌으면 좋겠다고 소원을 빌었는데... 사실은 그게 아니었어요. 가족이 정말 보고 싶어요."</div>
+            </div>
+
+            <div class="dialogue dialogue-grandpa">
+                <div class="speaker">말리 할아버지</div>
+                <div class="dialogue-text">"아무래도 네 말이 맞는 것 같구나. 꼭 아들에게 전화를 걸어봐야겠어. 케빈, 고맙다."</div>
+            </div>
+
+            <audio id="audio-scene7" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <!-- 장면 8 -->
+        <div class="scene-card">
+            <div class="scene-header">
+                <div class="scene-title">
+                    <div class="scene-number">8</div>
+                    <span>행복한 크리스마스</span>
                 </div>
+                <button class="play-btn" onclick="playAudio('scene8')">
+                    <span class="icon">▶️</span>
+                    <span class="text">재생하기</span>
+                </button>
+            </div>
 
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈:</div>
-                    <div class="dialogue-text">"아뇨! 가족들이 모두 돌아와서 정말 행복해요! 메리크리스마스"</div>
-                </div>
+            <div class="narration">
+                다시 집에 돌아온 케빈은 어질러진 집을 둘러보다가 산타할아버지께 편지를 쓰기 시작했어요.
+                가족들이 너무 보고 싶었거든요.
+            </div>
 
-                <div class="narration">
-                    온 가족이 서로 껴안고 행복한 크리스마스를 맞이했어요.
-                    그리고 잠시 후 케빈의 방문에 노크 소리가 들렸어요.
-                </div>
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (편지에)</div>
+                <div class="dialogue-text">'산타할아버지에게 저는 아무 선물도 필요 없어요 그냥 우리 가족들이 무사히 우리집으로 돌아오게 해주세요' 케빈 올림</div>
+            </div>
 
-                <div class="dialogue dialogue-santa">
-                    <div class="speaker">산타: (살짝 등장하며)</div>
-                    <div class="dialogue-text">"케빈! 네가 가족을 아끼는 착한 마음을 봤단다. 
+            <div class="narration">
+                그렇게 케빈은 잠이 들었어요.
+            </div>
+
+            <div class="narration">
+                다음 날 아침 케빈은 눈을 뜨자마자 거실로 달려갔어요. 하지만… 아무도 없었어요.
+                케빈은 눈물이 날 것 같았어요.
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (슬픈 목소리로)</div>
+                <div class="dialogue-text">"엄마… 아빠… 정말 아무도 안 오셨나…"</div>
+            </div>
+
+            <div class="narration">
+                바로 그때! 익숙한 목소리가 들려왔어요!!
+            </div>
+
+            <div class="dialogue dialogue-mom">
+                <div class="speaker">엄마 (다급하게)</div>
+                <div class="dialogue-text">"케빈! 케빈! 너 무사하니?"</div>
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈 (너무 기뻐서 소리치며)</div>
+                <div class="dialogue-text">"엄마! 정말 보고 싶었어요!!"</div>
+            </div>
+
+            <div class="dialogue dialogue-mom">
+                <div class="speaker">엄마 (케빈을 꼭 안아주며)</div>
+                <div class="dialogue-text">"나도 정말 보고 싶었단다! 미안해 케빈.. 우리가 너를 잊고 두고 가다니…"</div>
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈</div>
+                <div class="dialogue-text">"다른 식구들은요?"</div>
+            </div>
+
+            <div class="narration">
+                그때 현관문이 활짝 열리고 아빠와 형, 누나들이 뛰어 들어 왔어요!
+                온 가족이 드디어 다시 만났어요.
+            </div>
+
+            <div class="dialogue dialogue-family">
+                <div class="speaker">형, 누나 (활짝 웃으며)</div>
+                <div class="dialogue-text">"괜찮니?? 케빈? 혼자서 무서웠지?"</div>
+            </div>
+
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈</div>
+                <div class="dialogue-text">"아뇨! 가족들이 모두 돌아와서 정말 행복해요! 메리크리스마스"</div>
+            </div>
+
+            <div class="narration">
+                온 가족이 서로 껴안고 행복한 크리스마스를 맞이했어요.
+                그리고 잠시 후 케빈의 방문에 노크 소리가 들렸어요.
+            </div>
+
+            <div class="dialogue dialogue-santa">
+                <div class="speaker">산타 (살짝 등장하며)</div>
+                <div class="dialogue-text">"케빈! 네가 가족을 아끼는 착한 마음을 봤단다. 
 가족과 함께 따뜻하고 행복한 크리스마스를 보내렴!"</div>
-                </div>
-
-                <div class="dialogue dialogue-kevin">
-                    <div class="speaker">케빈:</div>
-                    <div class="dialogue-text">"와! 산타 할아버지 목소리다!! 엄마, 아빠! 산타할아버지가 저에게 선물을 주셨나 봐요!"</div>
-                </div>
-
-                <div class="narration">
-                    케빈은 방으로 뛰어가 산타 할아버지가 놓고 가신 선물과 따뜻한 쪽지를 발견했답니다.
-                    온 가족의 웃음소리가 집 안에 가득 퍼졌어요.
-                    케빈은 혼자 있는 용기와 지혜도 배웠지만,
-                    무엇보다 가족들과 함께할 수 있음에 감사함을 느끼고, 소중함을 알 수 있었어요.
-                    여러분도 케빈처럼 가족들을 사랑하는 마음을 담아 꼭 껴안아 주는건 어떨까요?
-                </div>
-
-                <audio id="audio-scene8" class="hidden-audio">
-                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
-                </audio>
             </div>
 
-            <div class="ending">
-                🎄 모두 함께 메리 크리스마스~! 🎅
+            <div class="dialogue dialogue-kevin">
+                <div class="speaker">케빈</div>
+                <div class="dialogue-text">"와! 산타 할아버지 목소리다!! 엄마, 아빠! 산타할아버지가 저에게 선물을 주셨나 봐요!"</div>
             </div>
+
+            <div class="narration">
+                케빈은 방으로 뛰어가 산타 할아버지가 놓고 가신 선물과 따뜻한 쪽지를 발견했답니다.
+                온 가족의 웃음소리가 집 안에 가득 퍼졌어요.
+                케빈은 혼자 있는 용기와 지혜도 배웠지만,
+                무엇보다 가족들과 함께할 수 있음에 감사함을 느끼고, 소중함을 알 수 있었어요.
+                여러분도 케빈처럼 가족들을 사랑하는 마음을 담아 꼭 껴안아 주는건 어떨까요?
+            </div>
+
+            <audio id="audio-scene8" class="hidden-audio">
+                <source src="YOUR_GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="ending">
+            🎄 메리 크리스마스! 🎅
         </div>
 
         <div class="footer">
-            <p>💝 크리스마스 구연동화 - 나홀로집에 💝</p>
-            <p>© 2024 | Made with ❤️</p>
+            <p>✨ 크리스마스 구연동화 - 나홀로집에 ✨</p>
+            <p>© 2024 | 가족과 함께 따뜻한 크리스마스를 보내세요 ❤️</p>
         </div>
     </div>
 
     <script>
-        // 현재 재생 중인 오디오 추적
         let currentAudio = null;
         let currentButton = null;
 
@@ -785,67 +872,60 @@
             const audio = document.getElementById(`audio-${sceneId}`);
             const button = event.currentTarget;
             
-            // 이전에 재생 중이던 오디오가 있으면 정지
+            // 이전 오디오 정지
             if (currentAudio && currentAudio !== audio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
                 if (currentButton) {
                     currentButton.classList.remove('playing');
-                    currentButton.innerHTML = '<span class="audio-btn-icon">🎵</span><span>장면 재생</span>';
+                    currentButton.querySelector('.icon').textContent = '▶️';
+                    currentButton.querySelector('.text').textContent = '재생하기';
                 }
             }
             
-            // 현재 오디오가 재생 중이면 정지, 아니면 재생
+            // 재생/정지 토글
             if (audio.paused) {
                 audio.play().catch(error => {
-                    console.log('오디오 재생 실패:', error);
-                    alert('오디오 파일을 찾을 수 없습니다. 구글 드라이브 링크를 추가해주세요!');
+                    alert('오디오 파일이 연결되지 않았습니다!\n구글 드라이브 링크를 추가해주세요 😊');
                 });
                 button.classList.add('playing');
-                button.innerHTML = '<span class="audio-btn-icon">⏸️</span><span>일시정지</span>';
+                button.querySelector('.icon').textContent = '⏸️';
+                button.querySelector('.text').textContent = '일시정지';
                 currentAudio = audio;
                 currentButton = button;
             } else {
                 audio.pause();
                 button.classList.remove('playing');
-                button.innerHTML = '<span class="audio-btn-icon">🎵</span><span>장면 재생</span>';
+                button.querySelector('.icon').textContent = '▶️';
+                button.querySelector('.text').textContent = '재생하기';
                 currentAudio = null;
                 currentButton = null;
             }
             
-            // 오디오가 끝나면 버튼 상태 초기화
+            // 오디오 종료 시 버튼 초기화
             audio.onended = function() {
                 button.classList.remove('playing');
-                button.innerHTML = '<span class="audio-btn-icon">🎵</span><span>장면 재생</span>';
+                button.querySelector('.icon').textContent = '▶️';
+                button.querySelector('.text').textContent = '재생하기';
                 currentAudio = null;
                 currentButton = null;
             };
         }
 
-        // 부드러운 스크롤 효과
-        document.querySelectorAll('.scene').forEach(scene => {
-            scene.addEventListener('click', function(e) {
-                // 버튼 클릭이 아닐 때만 배경색 변경
-                if (!e.target.closest('.audio-btn')) {
-                    this.style.backgroundColor = '#e8f4f8';
+        // 스크롤 애니메이션
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
                     setTimeout(() => {
-                        this.style.backgroundColor = '#f8f9fa';
-                    }, 300);
+                        entry.target.style.opacity = '1';
+                    }, index * 100);
                 }
             });
-        });
+        }, { threshold: 0.1 });
 
-        // 페이지 로드 시 애니메이션
-        window.addEventListener('load', function() {
-            document.querySelectorAll('.scene').forEach((scene, index) => {
-                scene.style.opacity = '0';
-                scene.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    scene.style.transition = 'all 0.5s ease';
-                    scene.style.opacity = '1';
-                    scene.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
+        document.querySelectorAll('.scene-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(card);
         });
     </script>
 </body>
