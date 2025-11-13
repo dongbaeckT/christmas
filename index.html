@@ -90,10 +90,17 @@
             transform: translateX(5px);
         }
 
+        .scene-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
         .scene-title {
             font-size: 1.8em;
             color: #667eea;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
         }
@@ -101,6 +108,46 @@
         .scene-icon {
             font-size: 1.2em;
             margin-right: 10px;
+        }
+
+        .audio-control {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .audio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .audio-btn:active {
+            transform: translateY(0);
+        }
+
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .audio-btn-icon {
+            font-size: 1.2em;
         }
 
         .narration {
@@ -199,6 +246,18 @@
             font-size: 0.9em;
         }
 
+        .audio-placeholder {
+            font-size: 0.8em;
+            color: #666;
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        /* 숨겨진 오디오 플레이어 */
+        .hidden-audio {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 1.8em;
@@ -214,6 +273,15 @@
 
             .scene {
                 padding: 20px 15px;
+            }
+
+            .scene-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .audio-control {
+                margin-top: 10px;
             }
         }
     </style>
@@ -237,7 +305,16 @@
         <div class="content">
             <!-- 장면1 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 1</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 1</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene1')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
                 
                 <div class="bgm-info">BGM01_Holiday_Flight.mp3 (0:00~끝)</div>
                 
@@ -270,11 +347,26 @@
                     <div class="speaker">케빈:</div>
                     <div class="dialogue-text">"흥! 나만 빼고 모두들 즐거워 보여.. 나만 미워하고!! 나 혼자 있을 거야! 가족이 다 없어졌으면 좋겠어! 이 집에 나 혼자 있었으면 좋겠다고!"</div>
                 </div>
+
             </div>
 
             <!-- 장면2 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 2</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 2</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene2')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
+
+                <!-- 숨겨진 오디오 플레이어 -->
+                <audio id="audio-scene1" class="hidden-audio">
+                    <source src="https://drive.google.com/file/d/1pzhgQapKkgg0nUKOlTzx1sP5wWoIBDqk/view?usp=drive_link" type="audio/mpeg">
+                </audio>
                 
                 <div class="narration">
                     다음날 아침이 밝았어요. 그런데 온 집안이 너무나 조용했어요.
@@ -326,11 +418,24 @@
                     <div class="speaker">케빈: (호기심 가득한 목소리로)</div>
                     <div class="dialogue-text">"아니 이게 다 뭐야~? 이건 어떻게 하는거지? 이거 형이 하는 거 보고 정말 해보고 싶었는데! 역시~ 너무 재밌잖아 우히히"</div>
                 </div>
+
+                <audio id="audio-scene2" class="hidden-audio">
+                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+                </audio>
             </div>
 
             <!-- 장면3 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 3</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 3</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene3')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
                 
                 <div class="narration">
                     케빈이 한참 재밌게 놀다 보니 벌써 밖이 어두워졌어요.
@@ -358,11 +463,24 @@
                     <div class="speaker">케빈:</div>
                     <div class="dialogue-text">"겁쟁이나 이렇게 숨어 있겠지. 난 절대 겁쟁이가 아니야. 지금은 내가 이집에서 가장 큰 어른이라고, 암 나도 이제 혼자서 뭐든지 할 수 있는 어른이야. 저 도둑들로부터 우리 집을 지켜야해!"</div>
                 </div>
+
+                <audio id="audio-scene3" class="hidden-audio">
+                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+                </audio>
             </div>
 
             <!-- 장면4 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 4</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 4</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene4')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
                 
                 <div class="narration">
                     케빈은 분주하게 도둑들로부터 집을 구해낼 작전을 세우기 시작했어요.
@@ -383,11 +501,24 @@
                     마지막으로 현관 앞에 따뜻한 물을 잔뜩 뿌려 놓아 꽁꽁 얼게 만들었어요.
                     케빈은 완벽한 함정을 만들었다고 생각하며 몹시 뿌듯했어요.
                 </div>
+
+                <audio id="audio-scene4" class="hidden-audio">
+                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+                </audio>
             </div>
 
             <!-- 장면5 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 5</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 5</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene5')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
                 
                 <div class="narration">
                     해가 지고, 눈 앞이 깜깜한 밤이 되었어요. 두 도둑들이 속삭이는 소리가 들렸어요!
@@ -431,11 +562,24 @@
                     두 도둑은 케빈이 만들어둔 함정에 빠져 허둥지둥 넘어지고 꽈당 부딪히고 말았어요.
                     끈적한 풀까지 손에 묻은 도둑들은 일어나기 위해 서로를 잡으려다가 잔뜩 더러워지기까지 했어요.
                 </div>
+
+                <audio id="audio-scene5" class="hidden-audio">
+                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+                </audio>
             </div>
 
             <!-- 장면6 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 6</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 6</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene6')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
                 
                 <div class="narration">
                     화가 머리 끝까지 난 도둑들은 이런 장난을 친 케빈을 이리저리 찾으러 다녔어요. 모든 것을 보고 있던 케빈은 미리 달아둔 밧줄을 타고 옆집으로 슈웅~ 달아났어요.
@@ -457,11 +601,24 @@
                     멀리서 경찰차 소리가 들려왔어요. 도둑들은 몸부림치며 경찰들에게 잡혀갔어요.
                     케빈과 할아버지는 멀리 사라지는 경찰차를 바라보며 미소를 지었어요.
                 </div>
+
+                <audio id="audio-scene6" class="hidden-audio">
+                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+                </audio>
             </div>
 
             <!-- 장면7 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 7</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 7</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene7')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
                 
                 <div class="narration">
                     도둑을 물리친 후, 케빈은 성당에서 옆집 말리 할아버지를 다시 만났어요.
@@ -497,11 +654,24 @@
                     <div class="speaker">말리 할아버지:</div>
                     <div class="dialogue-text">"아무래도 네 말이 맞는 것 같구나. 꼭 아들에게 전화를 걸어봐야겠어. 케빈, 고맙다."</div>
                 </div>
+
+                <audio id="audio-scene7" class="hidden-audio">
+                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+                </audio>
             </div>
 
             <!-- 장면8 -->
             <div class="scene">
-                <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 8</h2>
+                <div class="scene-header">
+                    <h2 class="scene-title"><span class="scene-icon">🎬</span>장면 8</h2>
+                    <div class="audio-control">
+                        <button class="audio-btn" onclick="playAudio('scene8')">
+                            <span class="audio-btn-icon">🎵</span>
+                            <span>장면 재생</span>
+                        </button>
+                        <span class="audio-placeholder">(오디오 추가 예정)</span>
+                    </div>
+                </div>
                 
                 <div class="narration">
                     다시 집에 돌아온 케빈은 어질러진 집을 둘러보다가 산타할아버지께 편지를 쓰기 시작했어요.
@@ -589,6 +759,10 @@
                     무엇보다 가족들과 함께할 수 있음에 감사함을 느끼고, 소중함을 알 수 있었어요.
                     여러분도 케빈처럼 가족들을 사랑하는 마음을 담아 꼭 껴안아 주는건 어떨까요?
                 </div>
+
+                <audio id="audio-scene8" class="hidden-audio">
+                    <source src="GOOGLE_DRIVE_LINK_HERE" type="audio/mpeg">
+                </audio>
             </div>
 
             <div class="ending">
@@ -603,13 +777,61 @@
     </div>
 
     <script>
+        // 현재 재생 중인 오디오 추적
+        let currentAudio = null;
+        let currentButton = null;
+
+        function playAudio(sceneId) {
+            const audio = document.getElementById(`audio-${sceneId}`);
+            const button = event.currentTarget;
+            
+            // 이전에 재생 중이던 오디오가 있으면 정지
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                if (currentButton) {
+                    currentButton.classList.remove('playing');
+                    currentButton.innerHTML = '<span class="audio-btn-icon">🎵</span><span>장면 재생</span>';
+                }
+            }
+            
+            // 현재 오디오가 재생 중이면 정지, 아니면 재생
+            if (audio.paused) {
+                audio.play().catch(error => {
+                    console.log('오디오 재생 실패:', error);
+                    alert('오디오 파일을 찾을 수 없습니다. 구글 드라이브 링크를 추가해주세요!');
+                });
+                button.classList.add('playing');
+                button.innerHTML = '<span class="audio-btn-icon">⏸️</span><span>일시정지</span>';
+                currentAudio = audio;
+                currentButton = button;
+            } else {
+                audio.pause();
+                button.classList.remove('playing');
+                button.innerHTML = '<span class="audio-btn-icon">🎵</span><span>장면 재생</span>';
+                currentAudio = null;
+                currentButton = null;
+            }
+            
+            // 오디오가 끝나면 버튼 상태 초기화
+            audio.onended = function() {
+                button.classList.remove('playing');
+                button.innerHTML = '<span class="audio-btn-icon">🎵</span><span>장면 재생</span>';
+                currentAudio = null;
+                currentButton = null;
+            };
+        }
+
         // 부드러운 스크롤 효과
         document.querySelectorAll('.scene').forEach(scene => {
-            scene.addEventListener('click', function() {
-                this.style.backgroundColor = '#e8f4f8';
-                setTimeout(() => {
-                    this.style.backgroundColor = '#f8f9fa';
-                }, 300);
+            scene.addEventListener('click', function(e) {
+                // 버튼 클릭이 아닐 때만 배경색 변경
+                if (!e.target.closest('.audio-btn')) {
+                    this.style.backgroundColor = '#e8f4f8';
+                    setTimeout(() => {
+                        this.style.backgroundColor = '#f8f9fa';
+                    }, 300);
+                }
             });
         });
 
